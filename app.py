@@ -155,9 +155,9 @@ def edit_user_profile():
         firstname = request.form.get('firstname')
         current_password = request.form.get('current_password')
         new_password = request.form.get('new_password')
+        hashed_password = user[4]
 
         if new_password !='' and firstname!='':
-            hashed_password = user[4]
             if bcrypt.check_password_hash(hashed_password, current_password):
                 new_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
                 change_user_details(firstname=firstname, password=new_password, id=user[0])
@@ -169,7 +169,18 @@ def edit_user_profile():
             else:
                 message = "Incorrect password"
                 return render_template('edit_user_profile.html',email=email,username=username, firstname=firstname, user=user, message=message)
-
+        
+        elif firstname != '' and bcrypt.check_password_hash(hashed_password, current_password):
+            password = user[4]
+            change_user_details(firstname=firstname, password=password, id=user[0])
+            user = find_user(username)[0]
+            email = user[3]
+            username = user[2]
+            firstname = user[1]
+            
+        else:
+            message = "Incorrect password"
+            return render_template('edit_user_profile.html', email=email, username=username, firstname=firstname, user=user, message=message)
     return render_template('edit_user_profile.html',email=email,username=username, firstname=firstname, user=user)
 
 
