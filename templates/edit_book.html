@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
     <title>edit book</title>
 </head>
 <body>
@@ -22,8 +23,7 @@
         <input type="text" name="author" value='{{ author }}'>
     
         <button type="submit">Save changes</button>
+        <a href="/{{user[2]}}">Return</a>
     </form>
-    <br>
-    <a href="/{{user[2]}}">Return</a>
 </body>
 </html>
