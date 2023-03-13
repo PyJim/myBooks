@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/edit.css') }}">
+    <title>edit profile</title>
+</head>
+<body>
+    {% if message|length %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+        </div>
+    {% endif %}
+    <div class="profile">
+        <h3>Edit user details</h3>
+        <img src="/static/images/dummy-profile-pic.png" alt="profile">
+        <p>{{user[2]}}</p>
+    </div>
+    <form action="{{ url_for("edit_user_profile") }}" method="post">
+        <label for="firstname">Firstname</label>
+        <input type="text" name="firstname" value='{{user[1]}}'>
+        <label for="username">Username</label>
+        <input type="text" name="username" value='{{user[2]}}' readonly>
+        <label for="email">Email</label>
+        <input type="email" name="email" value='{{user[3]}}' readonly>
+        <label for="new_password">Create new password</label>
+        <input type="password" name="new_password">
+        <label for="current_password">Enter current password to effect changes</label>
+        <input type="password" name="current_password">
+        <br>
+        <button type="submit">Save changes</button>
+    </form>
+
+    <a href="/{{user[2]}}"><button type="submit">Return</button></a>
+
+    
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit book</title>
+</head>
+<body>
+    {% if message|length %}
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            {{message}}
+        </div>
+    {% endif %}
+
+    <form action="{{ url_for("edit_particular_book") }}" method="post">
+        <label for="title">title</label>
+        <input type="text" name="title" value='{{ title }}'>
+    
+        <label for="author">author</label>
+        <input type="text" name="author" value='{{ author }}'>
+    
+        <button type="submit">Save changes</button>
+    </form>
+    <br>
+    <a href="/{{user[2]}}">Return</a>
+</body>
+</html>

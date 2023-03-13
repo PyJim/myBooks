@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user.css') }}">
+    <title>{{ current_user[1] }}</title>
+</head>
+<body>
+    <h1>Welcome {{ current_user[1] }}</h1>
+
+    <div class="profile">
+        <img src="/static/images/dummy-profile-pic.png" width="15%" height="auto" alt="dummy profile photo">
+        <p>{{ current_user[1] }}</p>
+        <p>{{ current_user[2] }}</p>
+        <p>{{ current_user[3] }}</p>
+        <a href="/edit_user"><button type="submit">Edit</button></a>
+    </div>
+    {% for i in range(length) %}
+        <div class={{number}}>
+            <p>{{i+1}}</p>
+            <img src="#" alt="book image">
+            <h4>{{ titles[i] }}</h4>
+            <p>{{ authors[i] }}</p>
+            <p>{{ dates[i] }}</p>
+
+            <form action="{{ url_for("edit_book") }}" method="post">
+                <label for="title">title</label>
+                <input type="text" name="title" value='{{ titles[i] }}' readonly>
+            
+                <label for="author">author</label>
+                <input type="text" name="author" value='{{ authors[i] }}' readonly>
+            
+                <button type="submit">Edit</button>
+            </form>
+
+            <form action="{{ url_for("delete_book") }}" method="post">
+                <label for="title">title</label>
+                <input type="text" name="title" value='{{ titles[i] }}' readonly>
+            
+                <label for="author">author</label>
+                <input type="text" name="author" value='{{ authors[i] }}' readonly>
+            
+                <button type="submit">Delete</button>
+            </form>
+
+        </div>
+    {% endfor %}
+    <div class="buttons-container">
+        <a href="/add" class="add-link">Add Book</a>
+        <br>
+        <a href="/logout" class="logout-link">Logout</a>
+    </div>
+</body>
+</html>
