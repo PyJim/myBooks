@@ -34,4 +34,16 @@ a:hover {
   color: white;
 }
 
-
+.all {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1500px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 84px;
+  margin: auto;
+}

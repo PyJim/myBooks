@@ -8,13 +8,14 @@
     <title>edit book</title>
 </head>
 <body>
+    <div class="all">
     {% if message|length %}
         <div class="alert">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
             {{message}}
         </div>
     {% endif %}
-
+        <h1>Edit Book</h1>
     <form action="{{ url_for("edit_particular_book") }}" method="post">
         <label for="title">title</label>
         <input type="text" name="title" value='{{ title }}'>
@@ -25,5 +26,6 @@
         <button type="submit">Save changes</button>
         <a href="/{{user[2]}}">Return</a>
     </form>
+    </div>
 </body>
 </html>

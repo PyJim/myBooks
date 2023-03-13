@@ -43,6 +43,7 @@ input[type="password"] {
 
 button[type="submit"] {
     margin-top: 20px;
+    margin-right: 20px;
     background-color:  #007bff;
     color: white;
     padding: 10px 20px;
@@ -66,6 +67,9 @@ a {
     color:   #007bff;
     text-decoration: none;
     font-weight: bold;
+    padding: 10px 20px;
+    border: 3px solid #007bff;
+    border-radius: 5px;
 }
 
 .alert {
@@ -91,4 +95,16 @@ a {
    color: aqua;
 }
 
- 
+.all{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 84px;
+    margin: auto;
+}

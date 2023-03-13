@@ -86,3 +86,17 @@ button[type="submit"]:hover {
 .closebtn:hover {
     color:aqua;
 }
+
+.all {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1500px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 84px;
+    margin: auto;
+}

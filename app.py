@@ -62,7 +62,6 @@ def signup():
             return render_template('signup.html', message=message)
         else:
             password = bcrypt.generate_password_hash(password).decode('utf-8')
-            date_now = datetime.now()
             create_user(firstname.capitalize(), username, email, password)
             message = f'Account created successfully'
             return render_template('login.html', message=message)
@@ -131,7 +130,7 @@ def add_book():
         
         if title and author:
             title, author = title.capitalize(), author.capitalize()
-            add_user_book(title=title, author=author, user_id=user[0], date=datetime.utcnow())
+            add_user_book(title=title, author=author, user_id=user[0], date=date.today().strftime("%B %d, %Y"))
         else:
             message = "Please fill all the fields"
             return render_template('add.html',message=message)
@@ -198,6 +197,9 @@ def edit_particular_book():
         if title and author:
             title, author = title.capitalize(), author.capitalize()
             change_book_details(title=title, author=author, user_id=user[0])
+            message = "Changes saved successfully."
+            render_template('edit_book.html', title=title,
+                            author=author, user=user, message=message)
         else:
             message = "Please fill all the fields"
             render_template('edit_book.html', title=title, author=author, user=user, message=message)

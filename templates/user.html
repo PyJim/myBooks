@@ -8,49 +8,58 @@
     <title>{{ current_user[1] }}</title>
 </head>
 <body>
-<div class="center">
-    <h1>Welcome {{ current_user[1] }}</h1>
-    
+<div class="all">
 
-    <div class="profile">
-        <img src="/static/images/dummy-profile-pic.png" width="15%" height="auto" alt="dummy profile photo">
-        <p>{{ current_user[1] }}</p>
-        <p>{{ current_user[2] }}</p>
-        <p>{{ current_user[3] }}</p>
-        <a href="/edit_user"><button type="submit">Edit</button></a>
-        <a href="/logout" class="logout-link">Logout</a>
+    <div>
+        <h1>Welcome {{ current_user[1] }}</h1>
     </div>
-    {% for i in range(length) %}
-        <div class=number>
-            <p>{{i+1}}</p>
-            <h4>{{ titles[i] }}</h4>
-            <p>{{ authors[i] }}</p>
-            <p>{{ dates[i] }}</p>
-
-            <form action="{{ url_for("edit_book") }}" method="post">
-                <label for="title"></label>
-                <input type="text" name="title" value='{{ titles[i] }}' readonly>
-            
-                <label for="author"></label>
-                <input type="text" name="author" value='{{ authors[i] }}' readonly>
-            
-                <button type="submit">Edit</button>
-            </form>
-
-            <form action="{{ url_for("delete_book") }}" method="post">
-                <label for="title"></label>
-                <input type="text" name="title" value='{{ titles[i] }}' readonly>
-            
-                <label for="author"></label>
-                <input type="text" name="author" value='{{ authors[i] }}' readonly>
-            
-                <button id="del" type="submit">Delete</button>
-            </form>
-
+    <div class="content">
+        <div class="profile">
+            <img src="/static/images/dummy-profile-pic.png" width="15%" height="auto" alt="dummy profile photo">
+            <p>{{ current_user[1] }}</p>
+            <p>{{ current_user[2] }}</p>
+            <p>{{ current_user[3] }}</p>
+            <a href="/edit_user"><button type="submit">Edit</button></a>
+            <a href="/logout" class="logout-link">Logout</a>
         </div>
-    {% endfor %}
-    <div class="buttons-container">
-        <a href="/add" class="add-link">Add Book</a>
+
+        <div class="books">
+        {% for i in range(length) %}
+            <div class=number>
+                <div class="about_book">
+                    <h4>{{ titles[i] }}</h4>
+                    <h5>{{ authors[i] }}</h5>
+                    <h6>{{ dates[i] }}</h6>
+                </div>
+
+                <div class="btns">
+                    <form action="{{ url_for("edit_book") }}" method="post">
+                        <label for="title"></label>
+                        <input type="text" name="title" value='{{ titles[i] }}' readonly>
+                    
+                        <label for="author"></label>
+                        <input type="text" name="author" value='{{ authors[i] }}' readonly>
+                    
+                        <button type="submit">Edit</button>
+                    </form>
+
+                    <form action="{{ url_for("delete_book") }}" method="post">
+                        <label for="title"></label>
+                        <input type="text" name="title" value='{{ titles[i] }}' readonly>
+                    
+                        <label for="author"></label>
+                        <input type="text" name="author" value='{{ authors[i] }}' readonly>
+                    
+                        <button id="del" type="submit">Delete</button>
+                    </form>
+                </div>
+
+            </div>
+        {% endfor %}
+            <div class="buttons-container">
+                <a href="/add" class="add-link">Add Book</a>
+            </div>
+        </div>
     </div>
 </div>
 </body>

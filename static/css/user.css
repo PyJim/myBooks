@@ -13,16 +13,16 @@ body {
   
   /* Set the width of the profile div */
   .profile {
-    width: 40%;
+    width: 300px;
+    height: 550px;
+    border: 1px solid #868686;
     border-radius: 10px;
     text-align: center;
-    float: right;
-    margin-top: 200px;
+    margin-top: 50px;
+    margin-left: 50px;
     position: sticky;
     top: 0;
-    background-color: #FAF9F6;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* add box-shadow */
-    
+    background-color: #FAF9F6;    
   }
   
   .profile img {
@@ -95,13 +95,14 @@ form button[type="submit"] :hover{
     border: none;
     border-radius: 4px;
     padding: 15px;
+    margin: auto 15px 15px 15px;
     cursor: pointer;
     margin-bottom: 40px;
   }
   
   /* Add hover effect for the delete button */
   #del:hover {
-    background-color: #007bff;
+    background-color: rgba(255, 0, 0, 0.775);
   }
   
   
@@ -109,7 +110,7 @@ form button[type="submit"] :hover{
   .buttons-container {
     clear: both; /* Clear the float */
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 0px;
     text-align: right;
     float:left;
     display: flex;
@@ -155,8 +156,78 @@ h1{
     margin-left: 40px;
 }
 .number{
-    width: 50%;
-    border-radius: 4px;
-    padding: 10px 10px 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* add box-shadow */
+  width: 450px;
+  height: 80px;
+  border-radius: 4px;
+  padding: 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #c8c8c8f1;
+}
+.about_book{
+  display: flex;
+  margin-right: 20px;
+  margin-left: 20px;
+  height: 70px;
+  width: 250px;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+}
+.about_book h4{
+  font-size: 20px;
+  color: #3b3b3b;
+  margin: 0;
+  padding: 0;
+}
+.about_book h5{
+  font-size: 17px;
+  color: #767676;
+  margin: 0;
+  padding: 0;
+}
+.about_book h6{
+  font-size: 12px;
+  color: #868686;
+  margin: 0;
+  padding: 0;
+}
+.btns{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+}
+
+.all {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1500px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 84px;
+  margin: auto;
+}
+.content{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.books {
+  width: 500px;
+  height: 550px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  top: 0;
+  background-color: #FAF9F6;
+  border: 1px solid #868686;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
